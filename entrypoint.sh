@@ -29,4 +29,8 @@ if [ -n "$PROJECT_ID" ]; then
     firebase use --add "$PROJECT_ID"
 fi
 
-sh -c "firebase $*"
+if [ -n "$ENV_JSON_STRING_CONFIG" ]; then
+    echo "ENV_JSON_STRING_CONFIG received"
+fi
+
+sh -c "$ENV_JSON_STRING_CONFIG firebase $*"
